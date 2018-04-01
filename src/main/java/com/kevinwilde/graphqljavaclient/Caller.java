@@ -22,7 +22,7 @@ public class Caller {
     @Autowired
     private JSONObjectFactory jsonObjectFactory;
 
-    public void execute(String url, String query) {
+    public String execute(String url, String query) {
 
         RestTemplate restTemplate = restTemplateFactory.build();
         HttpEntity httpEntity = httpEntityFactory.build(query);
@@ -32,6 +32,8 @@ public class Caller {
         JSONObject jsonObj = jsonObjectFactory.build(response);
 
         System.out.println(jsonObj);
+
+        return jsonObj.toString();
     }
 
 }

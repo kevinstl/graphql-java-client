@@ -8,11 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class HttpEntityFactory {
 
+    public static final String GRAPHQL_JAVA_CLIENT_BEARER_TOKEN = "GRAPHQL_JAVA_CLIENT_BEARER_TOKEN";
+
     public HttpEntity build(String query){
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Content-Type", "application/json");
-        httpHeaders.set("Authorization",System.getenv("GITHUB_BEARER_TOKEN"));
+        httpHeaders.set("Authorization",System.getenv(GRAPHQL_JAVA_CLIENT_BEARER_TOKEN));
 
 
         JSONObject json = new JSONObject();

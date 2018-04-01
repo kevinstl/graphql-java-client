@@ -6,18 +6,18 @@
 
     <groupId>com.kevinwilde.graphqljavaclient</groupId>
     <artifactId>graphql-java-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.0.4.RELEASE</version>
+            <version>4.3.14.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>5.0.4.RELEASE</version>
+            <version>4.3.14.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
@@ -25,12 +25,6 @@
             <version>20180130</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-test</artifactId>-->
-            <!--<version>5.0.4.RELEASE</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -45,5 +39,10 @@
         </dependency>
 
     </dependencies>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
 </project>
