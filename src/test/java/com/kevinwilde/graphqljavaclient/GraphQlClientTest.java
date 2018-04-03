@@ -5,7 +5,6 @@ import com.kevinwilde.graphqljavaclient.factory.JSONObjectFactory;
 import com.kevinwilde.graphqljavaclient.factory.RestTemplateFactory;
 import com.kevinwilde.junit.extension.mockito.MockitoExtension;
 import org.json.JSONObject;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,11 +18,11 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 //@ContextConfiguration(classes = { SpringTestConfiguration.class })
-public class CallerTest {
+public class GraphQlClientTest {
 
 
     @InjectMocks
-    private Caller classUnderTest;
+    private GraphQlClient classUnderTest;
 
     @Mock
     private RestTemplateFactory restTemplateFactory;
@@ -63,7 +62,7 @@ public class CallerTest {
     @Test
     public void execute_postsToUrl(){
 
-        classUnderTest.execute(url, query);
+        classUnderTest.execute(url, query, stringClass);
 
         verify(restTemplate).postForObject(url, httpEntity, stringClass);
     }

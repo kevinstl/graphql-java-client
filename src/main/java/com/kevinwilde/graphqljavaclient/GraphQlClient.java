@@ -6,12 +6,11 @@ import com.kevinwilde.graphqljavaclient.factory.RestTemplateFactory;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class Caller {
+public class GraphQlClient {
 
     @Autowired
     private RestTemplateFactory restTemplateFactory;
@@ -19,21 +18,18 @@ public class Caller {
     @Autowired
     private HttpEntityFactory httpEntityFactory;
 
-    @Autowired
-    private JSONObjectFactory jsonObjectFactory;
 
-    public String execute(String url, String query) {
+    public <T>T execute(String url, String query, Class<T> responseType) {
 
         RestTemplate restTemplate = restTemplateFactory.build();
         HttpEntity httpEntity = httpEntityFactory.build(query);
 
-        String response = restTemplate.postForObject(url, httpEntity, String.class);
+        T response = restTemplate.postForObject(url, httpEntity, responseType);
 
-        JSONObject jsonObj = jsonObjectFactory.build(response);
+        System.out.println("response: " + response);
 
-        System.out.println(jsonObj);
-
-        return jsonObj.toString();
+        return response;
     }
+
 
 }
